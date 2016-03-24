@@ -15,21 +15,21 @@ chown -R root:apache /var/www/vhosts/${DOMAIN} && \
 find /var/www/vhosts/${DOMAIN} -type d -print0 | xargs -0 chmod 02775 && find /var/www/vhosts/${DOMAIN} -type f -print0 | xargs -0 chmod 0664 && \
 ## Magento Install over PHP-CLI
 php-cli /var/www/vhosts/${DOMAIN}/install.php -- \
-‑‑license_agreement_accepted "yes" \
-‑‑locale "en_US" \
-‑‑timezone "America/Los_Angeles" \
-‑‑default_currency "USD" \
-‑‑db_host "${DB_HOST}" \
-‑‑db_name "${DB_NAME}" \
-‑‑db_user "${DB_NAME}" \
-‑‑db_pass "${DB_PASS}" \
-‑‑url "http://${DOMAIN}/" \
-‑‑use_rewrites "yes" \
-‑‑use_secure "no" \
-‑‑secure_base_url "no" \
-‑‑use_secure_admin "no" \
-‑‑admin_firstname "Joe" \
-‑‑admin_lastname "User" \
-‑‑admin_email "admin@example.com" \
-‑‑admin_username "admin" \
-‑‑admin_password "test123"
+--license_agreement_accepted "yes" \
+--locale "en_US" \
+--timezone "America/Los_Angeles" \
+--default_currency "USD" \
+--db_host "${DB_HOST}" \
+--db_name "${DB_NAME}" \
+--db_user "${DB_NAME}" \
+--db_pass "${DB_PASS}" \
+--url "http://${DOMAIN}/" \
+--use_rewrites "yes" \
+--use_secure "no" \
+--secure_base_url "no" \
+--use_secure_admin "no" \
+--admin_firstname "Joe" \
+--admin_lastname "User" \
+--admin_email "admin@example.com" \
+--admin_username "admin" \
+--admin_password "test123"
