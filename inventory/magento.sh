@@ -23,7 +23,7 @@ php /var/www/vhosts/${DOMAIN}/install.php -- \
 --db_user "${DB_NAME}" \
 --db_pass "${DB_PASS}" \
 --url "http://${DOMAIN}/" \
---skip-url-validation "yes" \
+--skip_url_validation "yes" \
 --use_rewrites "yes" \
 --use_secure "no" \
 --secure_base_url "no" \
