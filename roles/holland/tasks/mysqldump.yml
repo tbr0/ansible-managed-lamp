@@ -11,7 +11,6 @@
   include: RHEL7_mysqldump.yml
   when: ansible_os_family == 'RedHat' and ansible_distribution_major_version|int == 7
 
-
 - name: Download holland-mysqldump .deb file
   copy: src=holland-mysqldump_{{holland_version}}_all.deb dest=/tmp/holland-mysqldump_{{holland_version}}_all.deb
   when: ansible_os_family == 'Debian'
@@ -36,7 +35,7 @@
   mysql_user: name=holland host=localhost password="{{mysql_password}}" priv=*.*:ALL
 
 - name: Flush privileges
-  shell: mysqladmin -u root flush-privileges
+  shell: mysql -u root -p{{mysql_password}} -e "flush privileges";
 
 - name: Add cron job
   template: src=holland.cron.j2 dest=/etc/cron.d/holland
