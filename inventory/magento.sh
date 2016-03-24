@@ -13,7 +13,7 @@ rm magento.tgz && \
 chown -R root:apache /var/www/vhosts/${DOMAIN} && \
 find /var/www/vhosts/${DOMAIN} -type d -print0 | xargs -0 chmod 02775 && find /var/www/vhosts/${DOMAIN} -type f -print0 | xargs -0 chmod 0664 && \
 ## Magento Install over PHP-CLI
-php-cli /var/www/vhosts/${DOMAIN}/install.php -- \
+php /var/www/vhosts/${DOMAIN}/install.php -- \
 --license_agreement_accepted "yes" \
 --locale "en_US" \
 --timezone "America/Los_Angeles" \
@@ -23,6 +23,7 @@ php-cli /var/www/vhosts/${DOMAIN}/install.php -- \
 --db_user "${DB_NAME}" \
 --db_pass "${DB_PASS}" \
 --url "http://${DOMAIN}/" \
+--skip-url-validation "yes" \
 --use_rewrites "yes" \
 --use_secure "no" \
 --secure_base_url "no" \
