@@ -5,6 +5,8 @@ DB_NAME=${3}
 DB_USER=${4}
 DB_PASS=${5}
 
+echo "Need to disable requiretty so we can run commands as Apache." && \
+sed -i /etc/sudoers -e "s/Defaults    requiretty/#Defaults     requiretty/g" && \
 echo "Installing Magento Depedencies" && \
 yum install -y php56u-mcrypt php56u-soap && \
 echo "Configuring Virtual Host" && \
