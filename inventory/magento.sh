@@ -22,7 +22,7 @@ chown -R root:apache /var/www/vhosts/${DOMAIN} && \
 find /var/www/vhosts/${DOMAIN} -type d -print0 | xargs -0 chmod 02775 && find /var/www/vhosts/${DOMAIN} -type f -print0 | xargs -0 chmod 0664 && \
 ## Magento Install Over PHP-CLI ##
 echo "Installing Magento over PHP-CLI" && \
-sudo -u apache "php -f /var/www/vhosts/${DOMAIN}/install.php" -- \
+sudo -u apache "/bin/php -f /var/www/vhosts/${DOMAIN}/install.php" -- \
 --license_agreement_accepted "yes" \
 --locale "en_US" \
 --timezone "America/Los_Angeles" \
